@@ -14,6 +14,12 @@ import {
 import { Button } from "./ui/button";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { ArrowUpIcon } from "@hugeicons/core-free-icons";
+import {
+  TiSocialFacebook,
+  TiSocialInstagram,
+  TiSocialLinkedin,
+  TiSocialYoutube,
+} from "react-icons/ti";
 
 export default function Navbar() {
   return (
@@ -82,21 +88,100 @@ export default function Navbar() {
             <DrawerContent>
               <DrawerHeader className="flex flex-row gap-1 w-full">
                 <div className="w-full">
-                  <DrawerTitle>Move Goal</DrawerTitle>
+                  <DrawerTitle className="text-base">4CO</DrawerTitle>
                   <DrawerDescription>
-                    Set your daily activity goal.
+                    Comunicação e cultura organizacional
                   </DrawerDescription>
                 </div>
 
                 <DrawerClose asChild>
-                  <Button variant="outline" size="icon" aria-label="Submit" className="size-10">
-                    <IoClose className="size-8" />
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    aria-label="Submit"
+                    className="size-10"
+                  >
+                    <IoClose className="size-7" />
                   </Button>
                 </DrawerClose>
               </DrawerHeader>
-              <div className="no-scrollbar overflow-y-auto px-4"></div>
-              <DrawerFooter>
-                <Button>Submit</Button>
+              <div className="no-scrollbar overflow-y-auto px-4">
+                <ul className="space-y-4">
+                  <li>
+                    <Link
+                      href="#"
+                      className={`text-sm sm:text-base uppercase font-normal px-1 hover:bg-[#84AF00] `}
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00]  `}
+                    >
+                      quem somos
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00]  `}
+                    >
+                      o que fazemos
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00]  `}
+                    >
+                      clientes
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00] `}
+                    >
+                      ebooks
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className={`text-xs md:text-base uppercase font-normal px-1 hover:bg-[#84AF00] `}
+                    >
+                      contato
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <DrawerFooter className="flex flex-row justify-center items-center gap-4">
+                <Link
+                  href="#"
+                  className=" outline p-1 rounded hover:bg-gray-200 active:bg-gray-300"
+                >
+                  <TiSocialLinkedin className="text-4xl" />
+                </Link>
+                <Link
+                  href="#"
+                  className=" outline p-1 rounded hover:bg-gray-200 active:bg-gray-300"
+                >
+                  <TiSocialFacebook className="text-4xl" />
+                </Link>
+                <Link
+                  href="#"
+                  className=" outline p-1 rounded hover:bg-gray-200 active:bg-gray-300"
+                >
+                  <TiSocialInstagram className="text-4xl" />
+                </Link>
+                <Link
+                  href="#"
+                  className=" outline p-1 rounded hover:bg-gray-200 active:bg-gray-300"
+                >
+                  <TiSocialYoutube className="text-4xl" />
+                </Link>
               </DrawerFooter>
             </DrawerContent>
           </Drawer>
