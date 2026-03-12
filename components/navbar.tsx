@@ -12,7 +12,8 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Button } from "./ui/button";
-import { IoMenu } from "react-icons/io5";
+import { IoClose, IoMenu } from "react-icons/io5";
+import { ArrowUpIcon } from "@hugeicons/core-free-icons";
 
 export default function Navbar() {
   return (
@@ -78,19 +79,24 @@ export default function Navbar() {
                 <IoMenu className="text-white text-3xl" />
               </div>
             </DrawerTrigger>
-            <DrawerContent >
-              <DrawerHeader>
-                <DrawerTitle>Move Goal</DrawerTitle>
-                <DrawerDescription>
-                  Set your daily activity goal.
-                </DrawerDescription>
+            <DrawerContent>
+              <DrawerHeader className="flex flex-row gap-1 w-full">
+                <div className="w-full">
+                  <DrawerTitle>Move Goal</DrawerTitle>
+                  <DrawerDescription>
+                    Set your daily activity goal.
+                  </DrawerDescription>
+                </div>
+
+                <DrawerClose asChild>
+                  <Button variant="outline" size="icon" aria-label="Submit" className="size-10">
+                    <IoClose className="size-8" />
+                  </Button>
+                </DrawerClose>
               </DrawerHeader>
               <div className="no-scrollbar overflow-y-auto px-4"></div>
               <DrawerFooter>
                 <Button>Submit</Button>
-                <DrawerClose asChild>
-                  <Button variant="outline">Cancel</Button>
-                </DrawerClose>
               </DrawerFooter>
             </DrawerContent>
           </Drawer>
