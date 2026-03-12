@@ -75,7 +75,7 @@ export default function Navbar() {
           <Drawer direction="left">
             <DrawerTrigger asChild className="lg:hidden flex">
               <div className="bg-[#84AF00] flex justify-center items-center size-10 rounded">
-                <IoMenu className="text-white text-2xl" />
+                <IoMenu className="text-white text-3xl" />
               </div>
             </DrawerTrigger>
             <DrawerContent >
