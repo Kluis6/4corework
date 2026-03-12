@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="w-full bg-black sticky top-0 z-50">
-        <div className="container mx-auto flex items-center justify-between py-4 px-3 md:px-2">
+        <div className="container mx-auto flex items-center justify-between py-2 sm:py-4 px-3 md:px-2">
           <div className="relative">
             <Image src="/logo.png" alt="Logo" width={100} height={50} />
           </div>
@@ -74,7 +74,7 @@ export default function Navbar() {
           </ul>
           <Drawer direction="left">
             <DrawerTrigger asChild className="lg:hidden flex">
-              <div className="bg-[#84AF00] flex justify-center items-center size-9 rounded">
+              <div className="bg-[#84AF00] flex justify-center items-center size-10 rounded">
                 <IoMenu className="text-white text-2xl" />
               </div>
             </DrawerTrigger>
