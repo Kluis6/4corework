@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Quicksand, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const quicksand = Quicksand({
   subsets: ["latin"],
+  display: "swap",
+  // Para fontes variáveis, usamos 'variable' ou definimos o eixo
+  weight: "variable",
+  variable: "--font-quicksand",
 });
 
 export const metadata: Metadata = {
@@ -23,10 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="pt-br" className={cn("font-sans", inter.variable)}>
+      <body className={`${quicksand.variable} antialiased relative scroll-smooth`}>
+        <Navbar />
         {children}
       </body>
     </html>
