@@ -143,8 +143,11 @@ html {
   --sidebar-ring: oklch(0.556 0 0);}
 
 @theme inline {
+/* Registra a fonte para o Tailwind criar a classe 'font-quicksand' */
+  --font-quicksand: var(--font-quicksand);
 
-  --font-sans: var(--font-sans);
+  /* OPCIONAL: Se quiser que a Quicksand seja a fonte padrão do site (font-sans) */
+  --font-sans: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif;
 
   --color-sidebar-ring: var(--sidebar-ring);
 

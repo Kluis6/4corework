@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Quicksand, Inter } from "next/font/google";
+import { Quicksand, } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className={cn("font-sans", inter.variable)}>
+    <html lang="pt-br" className={cn("", quicksand.variable)}>
       <body
         className={`${quicksand.variable} antialiased relative scroll-smooth`}
       >

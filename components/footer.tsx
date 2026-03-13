@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div className="bg-neutral-100 text-gray-800 py-6">
-      <div className="container mx-auto px-4 flex justify-between items-center ">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row md:justify-between items-center ">
         <p className="font-light">
           &copy; 2023 4CO. Todos os direitos reservados.
         </p>
