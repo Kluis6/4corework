@@ -13,74 +13,81 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "./ui/button";
 import { IoClose, IoMenu } from "react-icons/io5";
-import { ArrowUpIcon } from "@hugeicons/core-free-icons";
+
 import {
   TiSocialFacebook,
   TiSocialInstagram,
   TiSocialLinkedin,
   TiSocialYoutube,
 } from "react-icons/ti";
+import { useEffect, useState } from "react";
+
+const navLinks = [
+  { name: "Início", href: "#home" },
+  { name: "quem somos", href: "#somos" },
+  { name: "o que fazemos", href: "#fazemos" },
+  { name: "clientes", href: "#clientes" },
+  { name: "ebooks", href: "#ebooks" },
+  { name: "Contato", href: "#contatos" },
+];
 
 export default function Navbar() {
+  const [activeSection, setActiveSection] = useState("inicio");
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Ajusta a "janela" de detecção
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
+
+    // Observa todas as seções que têm um ID correspondente aos links
+    navLinks.forEach((link) => {
+      const section = document.querySelector(link.href);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <>
       <nav className="w-full bg-black sticky top-0 z-50">
-        <div className="container mx-auto flex items-center justify-between py-2 sm:py-4 px-3 md:px-2">
+        <div className=" flex items-center justify-between py-2 sm:py-4 px-4">
           <div className="relative">
             <Image src="/logo.png" alt="Logo" width={100} height={50} />
           </div>
-          <ul className="lg:flex space-x-4 text-white hidden ">
-            <li>
-              <Link
-                href="#"
-                className={`text-sm sm:text-base uppercase font-normal px-1 transition-colors duration-200 hover:bg-[#84AF00] active:bg-green-500 `}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className={`text-sm md:text-base uppercase font-normal px-1 transition-colors duration-200 hover:bg-[#84AF00] active:bg-green-500 `}
-              >
-                quem somos
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className={`text-sm md:text-base uppercase font-normal px-1 transition-colors duration-200 hover:bg-[#84AF00] active:bg-green-500 `}
-              >
-                o que fazemos
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className={`text-sm md:text-base uppercase font-normal px-1 transition-colors duration-200 hover:bg-[#84AF00] active:bg-green-500 `}
-              >
-                clientes
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className={`text-sm md:text-base uppercase font-normal px-1 transition-colors duration-200 hover:bg-[#84AF00] active:bg-green-500 `}
-              >
-                ebooks
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className={`text-xs md:text-base uppercase font-normal px-1 transition-colors duration-200 hover:bg-[#84AF00] active:bg-green-500 `}
-              >
-                contato
-              </Link>
-            </li>
+          <ul className="md:flex space-x-4 text-white hidden ">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`text-sm sm:text-base text-white uppercase font-light px-1 transition-colors duration-300 hover:bg-[#84AF00]  ${
+                    activeSection === link.href.replace("#", "")
+                      ? "bg-[#84AF00] " 
+                      : "" 
+                  }`}
+                 
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
           </ul>
           <Drawer direction="left">
-            <DrawerTrigger asChild className="lg:hidden flex">
+            <DrawerTrigger asChild className="md:hidden flex">
               <div className="bg-[#84AF00] flex justify-center items-center size-10 rounded">
                 <IoMenu className="text-white text-3xl" />
               </div>
@@ -110,7 +117,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       href="#"
-                      className={`text-sm sm:text-base uppercase font-normal px-1 hover:bg-[#84AF00] `}
+                      className={`text-sm sm:text-base uppercase font-light px-1 hover:bg-[#84AF00] `}
                     >
                       Home
                     </Link>
@@ -118,7 +125,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       href="#"
-                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00]  `}
+                      className={`text-sm md:text-base uppercase font-light px-1 hover:bg-[#84AF00]  `}
                     >
                       quem somos
                     </Link>
@@ -126,7 +133,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       href="#"
-                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00]  `}
+                      className={`text-sm md:text-base uppercase font-light px-1 hover:bg-[#84AF00]  `}
                     >
                       o que fazemos
                     </Link>
@@ -134,7 +141,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       href="#"
-                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00]  `}
+                      className={`text-sm md:text-base uppercase font-light px-1 hover:bg-[#84AF00]  `}
                     >
                       clientes
                     </Link>
@@ -142,7 +149,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       href="#"
-                      className={`text-sm md:text-base uppercase font-normal px-1 hover:bg-[#84AF00] `}
+                      className={`text-sm md:text-base uppercase font-light px-1 hover:bg-[#84AF00] `}
                     >
                       ebooks
                     </Link>
@@ -150,7 +157,7 @@ export default function Navbar() {
                   <li>
                     <Link
                       href="#"
-                      className={`text-xs md:text-base uppercase font-normal px-1 hover:bg-[#84AF00] `}
+                      className={`text-xs md:text-base uppercase font-light px-1 hover:bg-[#84AF00] `}
                     >
                       contato
                     </Link>

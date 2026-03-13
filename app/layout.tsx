@@ -3,8 +3,9 @@ import { Quicksand, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
+import Footer from "@/components/footer";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -26,9 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br" className={cn("font-sans", inter.variable)}>
-      <body className={`${quicksand.variable} antialiased relative scroll-smooth`}>
+      <body
+        className={`${quicksand.variable} antialiased relative scroll-smooth`}
+      >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

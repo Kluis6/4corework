@@ -5,7 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 body {
-  @apply w-screen overflow-x-hidden
+  @apply w-screen 
+}
+
+html {
+  @apply scroll-smooth;
 }
 
 :root {
