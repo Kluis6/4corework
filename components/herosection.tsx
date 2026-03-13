@@ -13,7 +13,7 @@ export default function HeroSection() {
         <div className="relative size-22 md:size-32 ">
           <Image src={"/icon.png"} alt={""} className="object-contain" fill />
         </div>
-        <h1 className="text-white text-center text-xl md:text-4xl font-normal font-quicksand">
+        <h1 className="text-white text-center text-2xl md:text-4xl font-normal font-quicksand">
           existe algo além dos <br className="flex sm:hidden" /> elementos
           visíveis
         </h1>
